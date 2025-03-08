@@ -6,7 +6,7 @@ This program reads a .csv file containing a list of songs and automatically down
 
 Open the terminal or command prompt and use:
 ```bash
-curl -o playlist-dl.py https://gist.githubusercontent.com/Simv135/391ce0c1bed736d6b7c56853b05bf3b3/raw/44ea5df20d3edab6d4c63b0e92415b93558f2508/playlist-dl.py
+curl -o playlist-dl.py https://bit.ly/playlist-dl
 ```
 
 ## 📄 CSV File Format
