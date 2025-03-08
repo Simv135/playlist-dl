@@ -15,12 +15,10 @@ The '.csv' file must contain at least two columns:
 - **"Track Name"** → Song Title
 
 ### 📄 Example of '.csv' file
-```csv
-Artist Name,Track Name
+_Artist Name,Track Name
 Coldplay,Yellow
 Eminem,Lose Yourself
-Daft Punk,One More Time
-```
+Daft Punk,One More Time_
 
 ## ▶️ Usage - Open the terminal or command prompt and use:
 ```bash
