@@ -23,7 +23,6 @@ while True:
         # Install the missing package
         subprocess.check_call([sys.executable, "-m", "pip", "install", missing_package])
 
-# Initialize colorama for cross-platform usage
 init(autoreset=True)
 
 def print_info(message):
