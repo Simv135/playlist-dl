@@ -23,7 +23,7 @@ jobs:
           # Define variables
           GIST_ID="bd2ab20b1ea59c817c266536f547e8d2"  # Inserisci l'ID del tuo Gist
           FILE_PATH="playlist-dl.py"  # Il percorso del file che desideri aggiornare
-          GITHUB_TOKEN="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"  # Usa il token che hai creato
+          GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}"  # Usa il token che hai creato
 
           # Ottieni il contenuto del file
           FILE_CONTENT=$(cat $FILE_PATH)
