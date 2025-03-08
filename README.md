@@ -14,7 +14,7 @@ The '.csv' file must contain at least two columns:
 - **"Artist Name"** → Name of the artist or band
 - **"Track Name"** → Song Title
 
-### 📄 Example of '.csv'
+### 📄 Example of '.csv' file
 ```csv
 Artist Name,Track Name
 Coldplay,Yellow
@@ -24,12 +24,12 @@ Daft Punk,One More Time
 
 ## ▶️ Usage - Open the terminal or command prompt and use:
 ```bash
-python playlist-dl.py name_playlist.csv
+python playlist-dl.py my_playlist.csv
 ```
 
 If you want to specify a destination folder for your audio files:
 ```bash
-python playlist-dl.py name_playlist.csv --output_path "/Users/Username/Music"
+python playlist-dl.py my_playlist.csv --output_path "/Users/Username/Music"
 ```
 
 ## 🚨 Uninstallation
