@@ -13,19 +13,20 @@ The '.csv' file must contain at least two columns:
 
 ### 📌 Example of 'playlist.csv'
 '''csv
-Artist Name,Track Name Coldplay,
-Yellow Eminem,Lose Yourself
+Artist Name,Track Name
+Coldplay,Yellow
+Eminem,Lose Yourself
 Daft Punk,One More Time
 '''
 
 ## ▶️ Usage Open the terminal or command prompt and use:
-'''
-bash Python playlist-dl.py playlist.csv
-'''
+```bash
+Python playlist-dl.py playlist.csv
+```
 
 If you want to specify a destination folder for your audio files:
-'''
-bash python playlist-dl.py playlist.csv --output_path "/Users/Username/Music"
-'''
+```bash
+python playlist-dl.py playlist.csv --output_path "/Users/Username/Music"
+```
 
 Enjoy your offline music! 🎵🚀
