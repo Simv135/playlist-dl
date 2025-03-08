@@ -19,8 +19,6 @@ while True:
     except ImportError as e:
         missing_package = str(e).split("'")[1]  # Extract the name of the missing package
         print(f"Missing package: {missing_package}. Installing...")
-
-        # Install the missing package
         subprocess.check_call([sys.executable, "-m", "pip", "install", missing_package])
 
 init(autoreset=True)
