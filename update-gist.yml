@@ -1,0 +1,42 @@
+name: Update Gist
+
+on:
+  push:
+    branches:
+      - main  # Puoi modificare il nome della branch se necessario
+    paths:
+      - 'playlist-dl.py'  # Specifica il percorso del file da monitorare
+
+jobs:
+  update-gist:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Update Gist
+        run: |
+          # Install curl
+          sudo apt-get install curl
+          
+          # Define variables
+          GIST_ID="bd2ab20b1ea59c817c266536f547e8d2"  # Inserisci l'ID del tuo Gist
+          FILE_PATH="playlist-dl.py"  # Il percorso del file che desideri aggiornare
+          GITHUB_TOKEN="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"  # Usa il token che hai creato
+
+          # Ottieni il contenuto del file
+          FILE_CONTENT=$(cat $FILE_PATH)
+
+          # Esegui la richiesta API per aggiornare il Gist
+          curl -X PATCH "https://api.github.com/gists/$GIST_ID" \
+            -H "Authorization: token $GITHUB_TOKEN" \
+            -d @- <<EOF
+          {
+            "files": {
+              "file_name.txt": {
+                "content": "$FILE_CONTENT"
+              }
+            }
+          }
+          EOF
