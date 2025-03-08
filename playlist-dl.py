@@ -4,7 +4,6 @@ import time
 import random
 import argparse
 import platform
-from colorama import init, Fore, Style
 
 # List of required packages
 packages = ["pandas", "yt-dlp", "colorama"]
@@ -13,6 +12,7 @@ while True:
     try:
         import pandas as pd
         import yt_dlp
+        from colorama import init, Fore, Style
 
         # If the import is successful, break the loop
         break
