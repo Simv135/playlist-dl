@@ -1,13 +1,13 @@
 # playlist-dl
 This program reads a .csv file containing a list of songs and automatically downloads them. Simply provide the .csv file with titles and artists, and the software retrieves the corresponding tracks. Ideal for creating offline music libraries in just a few clicks.
 
+## 📌 Requirements
+- Python 3.x
+
 ## 📌 Installation
 ```bash
 curl -o playlist-dl.py https://gist.githubusercontent.com/Simv135/bd2ab20b1ea59c817c266536f547e8d2/raw/15fc63887cdf70b3de99460dc60ed8ba89b33af3/playlist-dl
 ```
-
-## 📌 Requirements
-- Python 3.x
 
 ## 📄 CSV File Format
 The '.csv' file must contain at least two columns:
@@ -32,4 +32,7 @@ If you want to specify a destination folder for your audio files:
 python playlist-dl.py playlist.csv --output_path "/Users/Username/Music"
 ```
 
-Enjoy your offline music! 🎵🚀
+## 🚨 Uninstallation
+```bash
+rm playlist-dl.py && pip uninstall pandas yt-dlp colorama
+```
