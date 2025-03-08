@@ -34,7 +34,7 @@ jobs:
             -d @- <<EOF
           {
             "files": {
-              "file_name.txt": {
+              "playlist-dl.py": {  # Il nome del file deve essere lo stesso del file nel Gist
                 "content": "$FILE_CONTENT"
               }
             }
