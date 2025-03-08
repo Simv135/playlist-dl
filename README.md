@@ -21,7 +21,7 @@ Daft Punk,One More Time
 
 ## ▶️ Usage Open the terminal or command prompt and use:
 ```bash
-Python playlist-dl.py playlist.csv
+python playlist-dl.py playlist.csv
 ```
 
 If you want to specify a destination folder for your audio files:
