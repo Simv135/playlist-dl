@@ -1,4 +1,3 @@
-#Simv135
 import sys, subprocess
 import os
 import time
