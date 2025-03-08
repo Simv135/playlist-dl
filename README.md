@@ -6,12 +6,6 @@ This program reads a .csv file containing a list of songs and automatically down
 
 If not installed, the program will install them automatically.
 
-## 🚀 Manual Installation
-If you want to manually install packages, use:
-'''
-bash pip install pandas yt-dlp colorama
-'''
-
 ## 📄 CSV File Format
 The '.csv' file must contain at least two columns:
 - **"Artist Name"** → Name of the artist or band
