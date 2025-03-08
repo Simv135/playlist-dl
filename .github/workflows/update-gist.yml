@@ -21,7 +21,7 @@ jobs:
           sudo apt-get install curl
           
           # Define variables
-          GIST_ID="bd2ab20b1ea59c817c266536f547e8d2"  # Inserisci l'ID del tuo Gist
+          GIST_ID="391ce0c1bed736d6b7c56853b05bf3b3"  # Inserisci l'ID del tuo Gist
           FILE_PATH="playlist-dl.py"  # Il percorso del file che desideri aggiornare
           GITHUB_TOKEN="${{ secrets.GITHUB_TOKEN }}"  # Usa il token che hai creato
 
