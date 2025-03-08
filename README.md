@@ -1,4 +1,4 @@
-# playlist-dl
+# [playlist-dl](https://gist.github.com/Simv135/391ce0c1bed736d6b7c56853b05bf3b3)
 This program reads a .csv file containing a list of songs and automatically downloads them. Simply provide the .csv file with titles and artists, and the software retrieves the corresponding tracks. Ideal for creating offline music libraries in just a few clicks.
 
 ## 📌 Installation
