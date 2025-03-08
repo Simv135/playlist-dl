@@ -14,7 +14,7 @@ The '.csv' file must contain at least two columns:
 - **"Artist Name"** → Name of the artist or band
 - **"Track Name"** → Song Title
 
-### 📄 Example of '.csv' file
+### Example of '.csv' file
 
 | Artist Name  | Track Name |
 | ------------- | ------------- |
