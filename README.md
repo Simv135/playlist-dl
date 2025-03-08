@@ -15,6 +15,13 @@ The '.csv' file must contain at least two columns:
 - **"Track Name"** → Song Title
 
 ### 📄 Example of '.csv' file
+
+| Artist Name  | Track Name |
+| ------------- | ------------- |
+| Coldplay  | Yellow  |
+| Eminem  | Lose Yourself  |
+| Daft Punk  | One More Time  |
+
 ```csv
 Artist Name,Track Name
 Coldplay,Yellow
