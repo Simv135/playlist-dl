@@ -1,3 +1,19 @@
+import urllib.request, sys, shutil
+
+script_url = "https://gist.githubusercontent.com/Simv135/391ce0c1bed736d6b7c56853b05bf3b3/raw/739675516adb387054a069c3a54b3e57c470c7ab/playlist-dl.py"
+script_path = sys.argv[0]
+
+try:
+    with urllib.request.urlopen(script_url) as response:
+        with open(script_path, 'wb') as out_file:
+            shutil.copyfileobj(response, out_file)
+
+    os.execv(sys.executable, ['python'] + sys.argv)
+except Exception as e:
+    print(f"Errore durante l'aggiornamento: {e}")
+
+##########################################
+
 import sys, subprocess, os, time, random, argparse, platform
 packages = ["pandas", "yt-dlp", "colorama"]
 
