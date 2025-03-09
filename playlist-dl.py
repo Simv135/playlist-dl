@@ -1,11 +1,11 @@
-import sys, subprocess, os, time, random, argparse, platform, requests, hashlib
+import sys, subprocess, os, time, random, argparse, platform
 
 def update():
     url = "https://raw.githubusercontent.com/Simv135/playlist-dl/refs/heads/main/playlist-dl.py"
     file_locale = "playlist-dl.py"
     restart_flag = "update_flag.txt"  # Flag di riavvio temporaneo
 
-    # Verifica se esiste il flag di riavvio
+    # Verifica se esiste il flag di riavvio e lo rimuove se presente
     if os.path.exists(restart_flag):
         print("Lo script è già stato riavviato. Interrompendo il ciclo di aggiornamento.")
         os.remove(restart_flag)  # Rimuovi il flag per evitare il riavvio continuo
