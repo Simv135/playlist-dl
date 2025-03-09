@@ -1,7 +1,7 @@
 import sys, subprocess, os, time, random, argparse, platform
 
 def update():
-    url = "https://gist.githubusercontent.com/Simv135/c9bc3b41e06b2a7fbbeb8299c139cf63/raw/6a4df13f6c6892c36b2ee08a3c6ebb9f61d0bd00/playlist-dl.py"
+    url = "https://raw.githubusercontent.com/Simv135/playlist-dl/refs/heads/main/playlist-dl.py"
     file_locale = "playlist-dl.py"
     try:
         print("Scaricando il file più recente usando curl...")
