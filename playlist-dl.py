@@ -35,9 +35,10 @@ def load_csv(file_path):
         raise
 
 def validate_csv_columns(data):
-    columns = {col.lower(): col for col in data.columns}
-    artist_col = columns.get("artist name(s)") or columns.get("artist name")
-    track_col = columns.get("track name")
+    columns = {col.lower().replace(" ", ""): col for col in data.columns}
+
+    artist_col = columns.get("artistnames(s)") or columns.get("artistname")
+    track_col = columns.get("trackname")
     
     if not artist_col or not track_col:
         print_error("Missing 'Artist Name' and 'Track Name' columns in the CSV file.")
