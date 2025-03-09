@@ -99,7 +99,7 @@ def download_audio(video_url, title, artist, output_path):
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             ydl.download([video_url])
-        print_info("Track downloaded successfully!")
+        print_info("Track downloaded successfully!!!")
         return True
     except Exception as e:
         print_error("Error downloading the track!")
