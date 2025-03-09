@@ -1,54 +1,50 @@
-import sys, subprocess, os, time, random, argparse, platform, requests, hashlib
+import sys, subprocess, os, time, random, argparse, platform, hashlib
+
+packages = ["pandas", "yt-dlp", "colorama", "requests"]
+
+while True:
+    try:
+        import pandas, requests, yt_dlp
+        from colorama import init, Fore, Style
+        init(autoreset=True)
+        break
+    except ImportError as e:
+        missing_package = str(e).split("'")[1]
+        print(f"Missing package: {missing_package}. Installing...")
+        subprocess.check_call([sys.executable, "-m", "pip", "install", missing_package])
 
 def update():
     url = "https://raw.githubusercontent.com/Simv135/playlist-dl/refs/heads/main/playlist-dl.py"
     file_locale = "playlist-dl.py"
-    restart_flag = "update_flag.txt"  # Flag di riavvio temporaneo
+    restart_flag = "update_flag.txt"
 
-    # Verifica se esiste il flag di riavvio e lo rimuove se presente
     if os.path.exists(restart_flag):
         print("Lo script è già stato riavviato. Interrompendo il ciclo di aggiornamento.")
-        os.remove(restart_flag)  # Rimuovi il flag per evitare il riavvio continuo
+        os.remove(restart_flag)
         return
 
     try:
-        print("Verificando se c'è un aggiornamento disponibile...")
-
-        # Otteniamo il file remoto come contenuto
         response = requests.get(url)
         response.raise_for_status()
         remote_content = response.text
 
-        # Verifica se il file locale esiste già
         if os.path.exists(file_locale):
-            # Leggi il contenuto del file locale
             with open(file_locale, 'r', encoding='utf-8') as local_file:
                 local_content = local_file.read()
 
-            # Confronta i file confrontando l'hash
             if hashlib.sha256(remote_content.encode('utf-8')).hexdigest() == hashlib.sha256(local_content.encode('utf-8')).hexdigest():
-                print("Il file è già aggiornato. Nessun aggiornamento necessario.")
                 return
-            else:
-                print("Nuova versione disponibile! Aggiornando il file...")
 
-        else:
-            print("File locale non trovato. Scaricando il file...")
-
-        # Aggiorna il file locale con il contenuto remoto
         with open(file_locale, 'w', encoding='utf-8') as local_file:
             local_file.write(remote_content)
 
         print(f"File '{file_locale}' aggiornato con successo!")
 
-        # Crea un flag per segnalare il riavvio
         with open(restart_flag, 'w') as flag_file:
             flag_file.write("Script riavviato.")
 
-        # Riavvia lo script con gli stessi argomenti passati
-        print("Riavviando lo script...")
         subprocess.run([sys.executable, file_locale] + sys.argv[1:])
-        sys.exit(0)  # Chiudi lo script corrente dopo aver avviato il nuovo processo
+        sys.exit(0)
 
     except requests.RequestException as e:
         print(f"Errore durante il download del file remoto: {e}")
@@ -57,20 +53,6 @@ def update():
     except subprocess.CalledProcessError as e:
         print(f"Errore durante il riavvio dello script: {e}")
         sys.exit(1)
-
-packages = ["pandas", "yt-dlp", "colorama"]
-
-while True:
-    try:
-        import pandas
-        import yt_dlp
-        from colorama import init, Fore, Style
-        init(autoreset=True)
-        break
-    except ImportError as e:
-        missing_package = str(e).split("'")[1]
-        print(f"Missing package: {missing_package}. Installing...")
-        subprocess.check_call([sys.executable, "-m", "pip", "install", missing_package])
 
 def print_info(message):
     print(Fore.GREEN + message)
