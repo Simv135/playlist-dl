@@ -31,8 +31,8 @@ def update():
             with open(file_locale, 'r', encoding='utf-8') as local_file:
                 local_content = local_file.read()
 
-            if hashlib.sha256(remote_content.encode('utf-8')).hexdigest() == hashlib.sha256(local_content.encode('utf-8')).hexdigest():
-                return
+                if hashlib.sha256(remote_content.encode('utf-8')).hexdigest() == hashlib.sha256(local_content.encode('utf-8')).hexdigest():
+                    return
 
         with open(file_locale, 'w', encoding='utf-8') as local_file:
             local_file.write(remote_content)
@@ -99,7 +99,7 @@ def download_audio(video_url, title, artist, output_path):
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             ydl.download([video_url])
-        print_info("Track downloaded successfully!!!")
+        print_info("Track downloaded successfully!")
         return True
     except Exception as e:
         print_error("Error downloading the track!")
