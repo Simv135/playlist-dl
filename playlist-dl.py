@@ -19,7 +19,6 @@ def update():
     restart_flag = "update_flag.txt"
 
     if os.path.exists(restart_flag):
-        print("Lo script è già stato riavviato. Interrompendo il ciclo di aggiornamento.")
         os.remove(restart_flag)
         return
 
@@ -37,8 +36,6 @@ def update():
 
         with open(file_locale, 'w', encoding='utf-8') as local_file:
             local_file.write(remote_content)
-
-        print(f"File '{file_locale}' aggiornato con successo!")
 
         with open(restart_flag, 'w') as flag_file:
             flag_file.write("Script riavviato.")
