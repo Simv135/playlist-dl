@@ -1,20 +1,27 @@
-import urllib.request, sys, shutil
-
-script_url = "https://gist.githubusercontent.com/Simv135/391ce0c1bed736d6b7c56853b05bf3b3/raw/739675516adb387054a069c3a54b3e57c470c7ab/playlist-dl.py"
-script_path = sys.argv[0]
-
-try:
-    with urllib.request.urlopen(script_url) as response:
-        with open(script_path, 'wb') as out_file:
-            shutil.copyfileobj(response, out_file)
-
-    os.execv(sys.executable, ['python'] + sys.argv)
-except Exception as e:
-    print(f"Errore durante l'aggiornamento: {e}")
-
-##########################################
-
 import sys, subprocess, os, time, random, argparse, platform
+
+def update():
+    url = "https://gist.githubusercontent.com/Simv135/c9bc3b41e06b2a7fbbeb8299c139cf63/raw/6a4df13f6c6892c36b2ee08a3c6ebb9f61d0bd00/playlist-dl.py"
+    file_locale = "playlist-dl.py"
+    try:
+        print("Scaricando il file più recente usando curl...")
+        # Usa subprocess per chiamare curl e scaricare il file
+        result = subprocess.run(
+            ['curl', '-o', file_locale, url],
+            check=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE
+        )
+        print(f"File '{file_locale}' aggiornato con successo!")
+        
+        # Riavvia lo script con gli stessi argomenti passati
+        print("Riavviando lo script...")
+        subprocess.run([sys.executable, file_locale] + sys.argv[1:])
+        sys.exit(0)  # Chiudi lo script corrente dopo aver avviato il nuovo processo
+    except subprocess.CalledProcessError as e:
+        print(f"Errore durante il download del file: {e}")
+        sys.exit(1)
+
 packages = ["pandas", "yt-dlp", "colorama"]
 
 while True:
@@ -146,6 +153,7 @@ def main(file_path, output_path):
         print_error(f"Error in the download process: {e}")
 
 if __name__ == "__main__":
+    update()
     try:
         parser = argparse.ArgumentParser(description='Download music from a playlist')
         parser.add_argument('file_path', type=str, help='Path to the CSV file with tracks to download')
