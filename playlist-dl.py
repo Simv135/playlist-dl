@@ -66,7 +66,7 @@ def print_progress(message):
 def load_csv(file_path):
     try:
         data = pandas.read_csv(file_path)
-        print_info(f"CSV file loaded successfully: {file_path}")
+        print_info(f"File loaded successfully: {file_path}")
         return data
     except Exception as e:
         print_error(f"Error loading the CSV file: {e}")
