@@ -42,5 +42,5 @@ python3 playlist-dl.py "/my_path/my_playlist.csv" --output_path "/my_path/Music"
 
 ## 🚨 Uninstallation
 ```bash
-rm playlist-dl.py && pip uninstall pandas yt-dlp colorama
+rm playlist-dl.py && pip uninstall pandas yt-dlp colorama requests
 ```
