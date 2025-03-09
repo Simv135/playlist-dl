@@ -1,27 +1,17 @@
-import sys, subprocess
-import os
-import time
-import random
-import argparse
-import platform
-
-# List of required packages
+import sys, subprocess, os, time, random, argparse, platform
 packages = ["pandas", "yt-dlp", "colorama"]
 
 while True:
     try:
-        import pandas as pd
+        import pandas
         import yt_dlp
         from colorama import init, Fore, Style
-
-        # If the import is successful, break the loop
+        init(autoreset=True)
         break
     except ImportError as e:
-        missing_package = str(e).split("'")[1]  # Extract the name of the missing package
+        missing_package = str(e).split("'")[1]
         print(f"Missing package: {missing_package}. Installing...")
         subprocess.check_call([sys.executable, "-m", "pip", "install", missing_package])
-
-init(autoreset=True)
 
 def print_info(message):
     print(Fore.GREEN + message)
@@ -37,7 +27,7 @@ def print_progress(message):
 
 def load_csv(file_path):
     try:
-        data = pd.read_csv(file_path)
+        data = pandas.read_csv(file_path)
         print_info(f"CSV file loaded successfully: {file_path}")
         return data
     except Exception as e:
@@ -55,31 +45,10 @@ def validate_csv_columns(data):
     
     return artist_col, track_col
 
-def extract_title_artist(row, artist_col, track_col):
-    return row[artist_col], row[track_col]
-
-def create_audio_directory(output_path):
-    if not os.path.exists(output_path):
-        os.makedirs(output_path)
-        print_info(f"Folder {output_path} created.")
-
-# Function to replace slashes and backslashes with hyphens
-def sanitize_filename(filename):
-    return filename.replace('/', '-').replace('\\', '-')
-
-def file_exists(title, artist, output_path):
-    sanitized_title = sanitize_filename(title)
-    sanitized_artist = sanitize_filename(artist)
-    file_path = os.path.join(output_path, f"{sanitized_artist} - {sanitized_title}.webm")
-    return os.path.exists(file_path)
-
 def download_audio(video_url, title, artist, output_path):
-    sanitized_title = sanitize_filename(title)
-    sanitized_artist = sanitize_filename(artist)
-    
     ydl_opts = {
         'format': 'bestaudio/best',
-        'outtmpl': os.path.join(output_path, f'{sanitized_artist} - {sanitized_title}.webm'),
+        'outtmpl': os.path.join(output_path, f'{artist} - {title}.webm'),
         'quiet': True,
         'throttled-rate': '500K',
         'sleep-interval': 3,
@@ -115,31 +84,6 @@ def search_on_youtube(artist, title):
         print_error(f"Error during track search: {e}")
     return None
 
-def main(file_path, output_path):
-    try:
-        data = load_csv(file_path)
-        artist_col, track_col = validate_csv_columns(data)
-        create_audio_directory(output_path)
-        
-        for _, row in data.iterrows():
-            artist, title  = extract_title_artist(row, artist_col, track_col)
-            
-            if file_exists(title, artist, output_path):
-                continue
-
-            print_info("-------------------------------")
-            video_url = search_on_youtube(artist, title)
-            
-            if video_url:
-                print_progress(f"Downloading: {artist} - {title}")
-                download_audio(video_url, title, artist, output_path)
-            
-            time.sleep(random.uniform(2, 5))
-    except KeyboardInterrupt:
-        print_warning("\nDownload interrupted by the user.")
-    except Exception as e:
-        print_error(f"Error in the download process: {e}")
-
 def get_music_folder():
     system = platform.system()
     if system == "Windows":
@@ -154,6 +98,35 @@ def get_music_folder():
                         return line.split("=")[1].strip().strip('"').replace("$HOME", os.path.expanduser("~"))
     else:
         raise Exception(f"Operating system {system} not supported")
+
+def main(file_path, output_path):
+    try:
+        data = load_csv(file_path)
+        artist_col, track_col = validate_csv_columns(data)
+        if not os.path.exists(output_path):
+            os.makedirs(output_path)
+            print_info(f"Folder {output_path} created.")
+        
+        for _, row in data.iterrows():
+            artist = row[artist_col].replace('/', '-').replace('\\', '-')
+            title = row[track_col].replace('/', '-').replace('\\', '-')
+            
+            file_path = os.path.join(output_path, f"{artist} - {title}.webm")
+            if os.path.exists(file_path):
+                continue
+
+            print_info("-------------------------------")
+            video_url = search_on_youtube(artist, title)
+            
+            if video_url:
+                print_progress(f"Downloading: {artist} - {title}")
+                download_audio(video_url, title, artist, output_path)
+            
+            time.sleep(random.uniform(2, 5))
+    except KeyboardInterrupt:
+        print_warning("\nDownload interrupted by the user.")
+    except Exception as e:
+        print_error(f"Error in the download process: {e}")
 
 if __name__ == "__main__":
     try:
