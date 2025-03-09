@@ -1,4 +1,4 @@
-import sys, subprocess, os, time, random, argparse, platform
+import sys, subprocess, os, time, random, argparse, platform, requests, hashlib
 
 def update():
     url = "https://raw.githubusercontent.com/Simv135/playlist-dl/refs/heads/main/playlist-dl.py"
