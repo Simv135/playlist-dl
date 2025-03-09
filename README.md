@@ -1,4 +1,4 @@
-# [playlist-dl](https://gist.github.com/Simv135/391ce0c1bed736d6b7c56853b05bf3b3)
+# [playlist-dl](https://raw.githubusercontent.com/Simv135/playlist-dl/refs/heads/main/playlist-dl.py)
 This program reads a .csv file containing a list of songs and automatically downloads them. Simply provide the .csv file with titles and artists, and the software retrieves the corresponding tracks. Ideal for creating offline music libraries in just a few clicks.
 
 ## 📌 Installation
@@ -6,7 +6,7 @@ This program reads a .csv file containing a list of songs and automatically down
 
 Open the terminal or command prompt and use:
 ```bash
-curl -o playlist-dl.py https://gist.githubusercontent.com/Simv135/c9bc3b41e06b2a7fbbeb8299c139cf63/raw/2c2cb1bbe49ecb333c0ef81435014102e8419e44/playlist-dl.py
+curl -o playlist-dl.py https://raw.githubusercontent.com/Simv135/playlist-dl/refs/heads/main/playlist-dl.py
 ```
 
 ## 📄 CSV File Format
