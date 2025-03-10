@@ -40,7 +40,10 @@ def update():
         with open(restart_flag, 'w') as flag_file:
             flag_file.write("Script riavviato.")
 
-        subprocess.run([sys.executable, file_locale] + sys.argv[1:])
+        try:
+            subprocess.run([sys.executable, file_locale] + sys.argv[1:])
+        except KeyboardInterrupt:
+            pass
         sys.exit(0)
 
     except requests.RequestException as e:
