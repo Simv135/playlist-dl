@@ -75,7 +75,7 @@ def load_csv(file_path):
 def validate_csv_columns(data):
     columns = {col.lower().replace(" ", ""): col for col in data.columns}
 
-    artist_col = columns.get("artistnames(s)") or columns.get("artistname")
+    artist_col = columns.get("artistname(s)") or columns.get("artistname")
     track_col = columns.get("trackname")
     
     if not artist_col or not track_col:
