@@ -165,10 +165,8 @@ def main(file_path, output_path):
                 download_audio(video_url, title, artist, output_path)
             
             time.sleep(random.uniform(2, 5))
-    except KeyboardInterrupt:
+    except:
         print_warning("\nDownload interrupted by the user.")
-    except Exception as e:
-        print_error(f"Error in the download process: {e}")
 
 if __name__ == "__main__":
     update()
