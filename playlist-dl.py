@@ -79,7 +79,7 @@ def validate_csv_columns(data):
     columns = {col.lower().replace(" ", ""): col for col in data.columns}
 
     artist_col = columns.get("artistname(s)") or columns.get("artistname") or columns.get("artist")
-    track_col = columns.get("trackname") or columns.get("song")
+    track_col = columns.get("trackname") or columns.get("track") or columns.get("song")
     
     if not artist_col or not track_col:
         print_error("Missing 'Artist Name' and/or 'Track Name' columns in the CSV file.")
