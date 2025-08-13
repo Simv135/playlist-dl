@@ -153,8 +153,10 @@ def main(file_path, output_path):
             artist = row[artist_col].replace('/', '-').replace('\\', '-')
             title = row[track_col].replace('/', '-').replace('\\', '-')
             
-            file_path = os.path.join(output_path, f"{artist} - {title}.webm")
-            if os.path.exists(file_path):
+            webm_path = os.path.join(output_path, f"{artist} - {title}.webm")
+            mp3_path = os.path.join(output_path, f"{artist} - {title}.mp3")
+            
+            if os.path.exists(webm_path) or os.path.exists(mp3_path):
                 continue
 
             print_info("-------------------------------")
@@ -183,3 +185,4 @@ if __name__ == "__main__":
         print_info("\nDownload interrupted by the user.")
     except Exception as e:
         print_error(f"Unexpected error: {e}")
+
