@@ -1,13 +1,15 @@
 # [playlist-dl](https://raw.githubusercontent.com/Simv135/playlist-dl/refs/heads/main/playlist-dl.py)
 This program reads a .csv file containing a list of songs and automatically downloads them. Simply provide the .csv file with titles and artists, and the software retrieves the corresponding tracks. Ideal for creating offline music libraries in just a few clicks.
 
-## 📌 Installation
-- Requirements: Python 3.x
+## 📌 Requirements
+- Python 3.x
 
 For Linux:
 ```bash
 sudo apt install python3-pip -y && sudo apt update
 ```
+
+## 📦 Installation
 
 Open the terminal or command prompt and use:
 ```bash
@@ -42,7 +44,6 @@ For Windows:
 python playlist-dl.py "/my_path/my_playlist.csv"
 ```
 For Linux:
-
 ```bash
 python3 playlist-dl.py "/my_path/my_playlist.csv"
 ```
