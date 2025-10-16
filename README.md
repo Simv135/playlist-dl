@@ -41,7 +41,6 @@ For Linux:
 python3 playlist-dl.py "/my_path/my_playlist.csv"
 ```
 
-
 If you want to specify a destination folder for your audio files:
 
 For Windows:
