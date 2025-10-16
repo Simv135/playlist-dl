@@ -12,6 +12,8 @@ while True:
         missing_package = str(e).split("'")[1]
         print(f"Missing package: {missing_package}. Installing...")
         subprocess.check_call([sys.executable, "-m", "pip", "install", missing_package])
+    except KeyboardInterrupt:
+        sys.exit(0)
 
 def update():
     url = "https://raw.githubusercontent.com/Simv135/playlist-dl/refs/heads/main/playlist-dl.py"
@@ -185,4 +187,5 @@ if __name__ == "__main__":
         print_info("\nDownload interrupted by the user.")
     except Exception as e:
         print_error(f"Unexpected error: {e}")
+
 
