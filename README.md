@@ -4,6 +4,9 @@ This program reads a .csv file containing a list of songs and automatically down
 ## 📌 Requirements
 - Python 3.x
 
+For Windows:
+https://www.python.org/downloads/windows/
+
 For Linux:
 ```bash
 sudo apt install python3-pip -y && sudo apt update
