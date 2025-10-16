@@ -4,6 +4,11 @@ This program reads a .csv file containing a list of songs and automatically down
 ## 📌 Installation
 - Requirements: Python 3.x
 
+For Linux:
+```bash
+sudo apt install python3-pip -y && sudo apt update
+```
+
 Open the terminal or command prompt and use:
 ```bash
 curl -o playlist-dl.py https://raw.githubusercontent.com/Simv135/playlist-dl/refs/heads/main/playlist-dl.py
@@ -37,6 +42,7 @@ For Windows:
 python playlist-dl.py "/my_path/my_playlist.csv"
 ```
 For Linux:
+
 ```bash
 python3 playlist-dl.py "/my_path/my_playlist.csv"
 ```
