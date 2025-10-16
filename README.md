@@ -31,19 +31,21 @@ Daft Punk,One More Time
 
 ## ▶️ Usage
 Open the terminal or command prompt and use:
+For Windows:
 ```bash
 python playlist-dl.py "/my_path/my_playlist.csv"
 ```
-or
+For Linux:
 ```bash
 python3 playlist-dl.py "/my_path/my_playlist.csv"
 ```
 
 If you want to specify a destination folder for your audio files:
+For Windows:
 ```bash
 python playlist-dl.py "/my_path/my_playlist.csv" --output_path "/my_path/Music"
 ```
-or
+For Linux:
 ```bash
 python3 playlist-dl.py "/my_path/my_playlist.csv" --output_path "/my_path/Music"
 ```
