@@ -73,6 +73,7 @@ pip uninstall pandas yt-dlp requests -y
 ```
 
 For the **Console version** open the terminal or command prompt and use:
+
 For Windows:
 ```bash
 del playlist-dl.py && pip uninstall pandas yt-dlp colorama requests -y
