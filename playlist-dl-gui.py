@@ -122,11 +122,6 @@ class PlaylistDownloaderGUI:
         restart_flag = "update_flag.txt"
         if os.path.exists(restart_flag):
             os.remove(restart_flag)
-            self.show_restart_message()
-    
-    def show_restart_message(self):
-        """Show message after restarting from update"""
-        messagebox.showinfo("Update Complete", "Application has been updated to the latest version!")
     
     def setup_ui(self):
         # Main frame
@@ -497,7 +492,7 @@ class PlaylistDownloaderGUI:
                 self.log_message("-------------------------------", "info")
                 self.log_message(f"Searching: {artist} - {title}", "progress")
                 
-                video_url = self.search_on_youtube(artist, title)
+                video_url = self.search_on_youtube(artist, title)#
                 
                 if video_url:
                     self.log_message(f"Downloading: {artist} - {title}", "progress")
