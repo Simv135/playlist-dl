@@ -15,7 +15,9 @@ sudo apt install python3-pip -y && sudo apt update
 
 ## 📦 Installation
 
-Open the terminal or command prompt and use:
+For the **GUI version** simply download the "playlist-dl-gui.py" file and open it with Python
+
+For the **Console version** open the terminal or command prompt and use:
 ```bash
 curl -o playlist-dl.py https://raw.githubusercontent.com/Simv135/playlist-dl/refs/heads/main/playlist-dl.py
 ```
@@ -40,7 +42,7 @@ Eminem,Lose Yourself
 Daft Punk,One More Time
 ```
 
-## ▶️ Usage
+## ▶️ Usage (Console version)
 Open the terminal or command prompt and use:
 
 For Windows:
@@ -64,6 +66,13 @@ python3 playlist-dl.py "/my_path/my_playlist.csv" --output_path "/my_path/Music"
 ```
 
 ## 🚨 Uninstallation
+
+For the **GUI version** delete the file "playlist-dl-gui.py", open the terminal or command prompt and use:
+```bash
+pip uninstall pandas yt-dlp requests -y
+```
+
+For the **Console version** open the terminal or command prompt and use:
 For Windows:
 ```bash
 del playlist-dl.py && pip uninstall pandas yt-dlp colorama requests -y
