@@ -15,7 +15,7 @@ sudo apt install python3-pip -y && sudo apt update
 
 ## 📦 Installation
 
-For the **GUI version** simply download the "playlist-dl-gui.py" file and open it with Python
+For the **GUI version** simply download the ["playlist-dl-gui.py"](https://github.com/Simv135/playlist-dl/releases/tag/auto-updated) file and open it with Python
 
 For the **Console version** open the terminal or command prompt and use:
 ```bash
